@@ -3,4 +3,5 @@
     <string name="white_hair">white hair</string>
     <string name="button1">Linear</string>
     <string name="button2">Relative</string>
+    <string name="button3">Frame</string>
 </resources>
