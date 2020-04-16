@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">BMI Calculator</string>
+    <string name="page_title">BMI Calculator</string>
+    <string name="home">Home</string>
+    <string name="about">About</string>
+    <string name="bmi">BMI</string>
+    <string name="tv">TextView</string>
+    <string name="clicked">clicked</string>
 </resources>
