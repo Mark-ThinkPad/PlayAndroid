@@ -1,8 +1,18 @@
 <resources>
     <string name="app_name">Constraint Layout</string>
     <string name="white_hair">white hair</string>
-    <string name="button1">Linear</string>
-    <string name="button2">Relative</string>
-    <string name="button3">Frame</string>
-    <string name="title_activity_linear">Linear Layout</string>
+    <string name="button1">Linear1</string>
+    <string name="button2">Linear2</string>
+    <string name="button3">Relative</string>
+    <string name="title_activity_linear1">Linear Layout (Horizontal)</string>
+    <string name="title_activity_linear2">Linear Layout (Vertical)</string>
+    <string name="title_relative">Relative Layout</string>
+    <string name="tButton1">Button1</string>
+    <string name="tButton2">Button2</string>
+    <string name="tButton3">Button3</string>
+    <string name="tButton4">Button4</string>
+    <string name="tButton5">Button5</string>
+    <string name="one">one</string>
+    <string name="two">two</string>
+    <string name="three">three</string>
 </resources>

@@ -1,8 +1,8 @@
 package com.example.layout;
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,18 +12,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    // button1 click
     public void button1_click(View view) {
-
+        Intent intent = new Intent(this, Linear.class);
+        startActivity(intent);
     }
 
-    // button2 click
     public void button2_click(View view) {
-
+        Intent intent = new Intent(this, Linear2.class);
+        startActivity(intent);
     }
 
-    // button3 click
     public void button3_click(View view) {
-
+        Intent intent = new Intent(this, Relative.class);
+        startActivity(intent);
     }
 }

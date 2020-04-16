@@ -8,10 +8,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Linear"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/title_activity_linear">
-        </activity>
+        <activity
+            android:name=".Relative"
+            android:label="@string/title_relative"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".Linear2"
+            android:label="@string/title_activity_linear2"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Linear"
+            android:label="@string/title_activity_linear1"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

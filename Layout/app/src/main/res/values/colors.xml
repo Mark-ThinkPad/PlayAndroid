@@ -6,5 +6,8 @@
     <color name="MaterialColorPrimary">#2196F3</color>
     <color name="MaterialColorPrimaryDark">#0D47A1</color>
     <color name="MaterialColorAccent">#E3F2FD</color>
-    <color name="button_pressed">#90CAF9</color>
+    <color name="MaterialRed">#F44336</color>
+    <color name="MaterialTeal">#009688</color>
+    <color name="MaterialOrange">#FF9800</color>
+    <color name="background">#ffffff</color>
 </resources>
