@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
         final DrawerLayout dl = findViewById(R.id.dl);
         final NavigationView nv = findViewById(R.id.nav_view);
         final MaterialToolbar mt = findViewById(R.id.topAppBar);
-        final TextView tv = findViewById(R.id.textView);
 
         mt.setNavigationOnClickListener(new View.OnClickListener () {
             @Override
@@ -34,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
-                        tv.setText(R.string.clicked);
                     default:
                         dl.closeDrawers();
                 }

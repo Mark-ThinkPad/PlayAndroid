@@ -6,4 +6,6 @@
     <string name="bmi">BMI</string>
     <string name="tv">TextView</string>
     <string name="clicked">clicked</string>
+    <string name="label1">Your Weight (kg)</string>
+    <string name="label2">Your Height (m)</string>
 </resources>
