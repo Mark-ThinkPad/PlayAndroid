@@ -22,6 +22,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ws"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal" />
@@ -41,6 +42,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/hs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal" />
@@ -55,6 +57,7 @@
 
         <Button
             android:id="@+id/cal"
+            android:onClick="button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -64,6 +67,7 @@
 
         <Button
             android:id="@+id/reset"
+            android:onClick="button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -73,12 +77,18 @@
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/MaterialTeal"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:text="@string/result"/>
+
     <androidx.appcompat.widget.AppCompatSeekBar
         android:id="@+id/seekBar"
-        android:layout_marginTop="36dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_margin="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:max="400" />
@@ -95,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:textStyle="bold"
-            android:textSize="32sp" />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/tv2"
@@ -103,7 +113,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:textStyle="bold"
-            android:textSize="32sp" />
+            android:textSize="24sp" />
 
     </LinearLayout>
 
