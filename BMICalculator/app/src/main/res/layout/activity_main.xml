@@ -36,6 +36,9 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <!-- Scrollable content -->
+            <include
+                android:id="@+id/fill"
+                layout="@layout/home"/>
 
         </androidx.core.widget.NestedScrollView>
 
