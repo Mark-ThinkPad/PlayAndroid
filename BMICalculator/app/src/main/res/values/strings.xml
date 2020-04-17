@@ -8,4 +8,11 @@
     <string name="clicked">clicked</string>
     <string name="label1">Your Weight (kg)</string>
     <string name="label2">Your Height (m)</string>
+    <string name="calculate">compute</string>
+    <string name="reset">reset</string>
+    <string name="bmi_result">22.5</string>
+    <string name="r1">Thin</string>
+    <string name="r2">Normal</string>
+    <string name="r3">Heavy-set</string>
+    <string name="r4">Overweight</string>
 </resources>
