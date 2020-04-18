@@ -16,4 +16,9 @@
     <string name="r3">Heavy-set</string>
     <string name="r4">Overweight</string>
     <string name="result">RESULT</string>
+    <string name="aboutTitle">BMI计算器</string>
+    <string name="myName">制作人: 周淦清</string>
+    <string name="myClass">班级: 计科11704</string>
+    <string name="myID">学号: 201703407</string>
+    <string name="mySerial">课程序号: 52</string>
 </resources>

@@ -1,17 +1,19 @@
 package com.example.bmicalculator;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -22,27 +24,21 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    private HomeFragment hf;
-    private FragmentManager fManager;
+    private TextView tv1, tv2;
+    private TextInputEditText we, he;
+    private SeekBar seekBar;
+    private DrawerLayout dl;
+    private NavigationView nv;
+    private MaterialToolbar mt;
+    private View homeView, aboutView;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        final DrawerLayout dl = findViewById(R.id.dl);
-        final NavigationView nv = findViewById(R.id.nav_view);
-        final MaterialToolbar mt = findViewById(R.id.topAppBar);
-        final MenuItem home = findViewById(R.id.home);
-
-        fManager = getSupportFragmentManager();
+        BindViews();
         nv.setCheckedItem(R.id.home);
-        // 获取menu item的view
-        // 参考1: https://developer.android.com/training/appbar/action-views?hl=zh-cn
-        // 参考2: https://blog.csdn.net/u010607467/article/details/50354999
-        // home.performClick();
-        // 或者主页硬嵌入, 侧拉菜单的监听器式声明改回去, seek bar禁止滑动再试试
-        // 参考: https://blog.csdn.net/mvpstevenlin/article/details/64488065
 
         mt.setNavigationOnClickListener(new View.OnClickListener () {
             @Override
@@ -50,19 +46,52 @@ public class MainActivity extends AppCompatActivity {
                 dl.openDrawer(nv);
             }
         });
+
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.home:
+                        homeView.setVisibility(View.VISIBLE);
+                        aboutView.setVisibility(View.GONE);
+                        nv.setCheckedItem(R.id.home);
+                        dl.closeDrawers();
+                        return true;
+                    case R.id.about:
+                        homeView.setVisibility(View.GONE);
+                        aboutView.setVisibility(View.VISIBLE);
+                        nv.setCheckedItem(R.id.about);
+                        dl.closeDrawers();
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
+
+        seekBar.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.d("SeekBar", "Get touched");
+                return true;
+            }
+        });
     }
 
-    private void hideAllFragment(FragmentTransaction fragmentTransaction){
-        if(hf != null)fragmentTransaction.hide(hf);
+    private void BindViews() {
+        tv1 = findViewById(R.id.tv1);
+        tv2 = findViewById(R.id.tv2);
+        we = findViewById(R.id.ws);
+        he = findViewById(R.id.hs);
+        seekBar = findViewById(R.id.seekBar);
+        dl = findViewById(R.id.dl);
+        nv = findViewById(R.id.nav_view);
+        mt = findViewById(R.id.topAppBar);
+        homeView = findViewById(R.id.homeView);
+        aboutView = findViewById(R.id.aboutView);
     }
 
     public void button1(View v) {
-        TextView tv1 = findViewById(R.id.tv1);
-        TextView tv2 = findViewById(R.id.tv2);
-        TextInputEditText we = findViewById(R.id.ws);
-        TextInputEditText he = findViewById(R.id.hs);
-        SeekBar seekBar = findViewById(R.id.seekBar);
-
         MaterialAlertDialogBuilder madb =
                 new MaterialAlertDialogBuilder(MainActivity.this)
                         .setTitle("Warning")
@@ -110,35 +139,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void button2(View v) {
-        TextView tv1 = findViewById(R.id.tv1);
-        TextView tv2 = findViewById(R.id.tv2);
-        TextInputEditText we = findViewById(R.id.ws);
-        TextInputEditText he = findViewById(R.id.hs);
-        SeekBar seekBar = findViewById(R.id.seekBar);
-
         tv1.setText(null);
         tv2.setText(null);
         seekBar.setProgress(0);
         we.setText(null);
         he.setText(null);
-    }
-
-    public void MenuItemClick(MenuItem item) {
-        DrawerLayout dl = findViewById(R.id.dl);
-        FragmentTransaction fTransaction = fManager.beginTransaction();
-        hideAllFragment(fTransaction);
-        switch (item.getItemId()) {
-            case R.id.home:
-                if (hf == null) {
-                    hf = new HomeFragment();
-                    fTransaction.add(R.id.fl, hf);
-                } else {
-                    fTransaction.show(hf);
-                }
-            case R.id.about:
-            default:
-                dl.closeDrawers();
-        }
-        fTransaction.commit();
     }
 }
