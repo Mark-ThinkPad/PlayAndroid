@@ -9,11 +9,73 @@
     android:focusableInTouchMode="true">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/weight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:hint="@string/label3"
+        app:endIconMode="custom"
+        app:endIconCheckable="false"
+        app:endIconDrawable="@drawable/baseline_face_24"
+        app:startIconDrawable="@drawable/baseline_account_box_24"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/sex2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleLine="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:enabled="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sex"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/male"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/male"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/female"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/female"/>
+
+        </com.google.android.material.chip.ChipGroup>
+
+    </HorizontalScrollView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/weight2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:hint="@string/label1"
@@ -24,7 +86,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ws"
+            android:id="@+id/ws2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal" />
@@ -32,7 +94,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/height"
+        android:id="@+id/height2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -47,7 +109,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/hs"
+            android:id="@+id/hs2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal" />
@@ -61,7 +123,7 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:id="@+id/cal"
+            android:id="@+id/cal2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -70,54 +132,13 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon" />
 
         <Button
-            android:id="@+id/reset"
+            android:id="@+id/reset2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="@string/reset"
             app:icon="@drawable/baseline_cached_24"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon" />
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:textColor="@color/MaterialTeal"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:text="@string/result"/>
-
-    <androidx.appcompat.widget.AppCompatSeekBar
-        android:id="@+id/seekBar"
-        android:layout_margin="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="400" />
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/tv1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:textStyle="bold"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/tv2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textStyle="bold"
-            android:textSize="24sp" />
 
     </LinearLayout>
 

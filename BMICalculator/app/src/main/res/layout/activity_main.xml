@@ -37,19 +37,10 @@
 
             <!-- Scrollable content -->
 
-            <LinearLayout
+            <FrameLayout
+                android:id="@+id/content"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <include android:id="@+id/homeView"
-                    layout="@layout/home"/>
-
-                <include android:id="@+id/aboutView"
-                    layout="@layout/about"
-                    android:visibility="gone"/>
-
-            </LinearLayout>
+                android:layout_height="match_parent"/>
 
         </androidx.core.widget.NestedScrollView>
 

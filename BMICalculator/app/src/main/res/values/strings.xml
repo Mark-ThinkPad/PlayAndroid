@@ -2,12 +2,14 @@
     <string name="app_name">BMI Calculator</string>
     <string name="page_title">BMI Calculator</string>
     <string name="home">Home</string>
+    <string name="home2">Home 2</string>
     <string name="about">About</string>
     <string name="bmi">BMI</string>
     <string name="tv">TextView</string>
     <string name="clicked">clicked</string>
     <string name="label1">Your Weight (kg)</string>
     <string name="label2">Your Height (m)</string>
+    <string name="label3">Your Name</string>
     <string name="calculate">compute</string>
     <string name="reset">reset</string>
     <string name="bmi_result">22.5</string>
@@ -16,9 +18,15 @@
     <string name="r3">Heavy-set</string>
     <string name="r4">Overweight</string>
     <string name="result">RESULT</string>
+    <string name="sex">Select your sex:</string>
+    <string name="male">male</string>
+    <string name="female">female</string>
+    <string name="result2">Result</string>
     <string name="aboutTitle">BMI计算器</string>
     <string name="myName">制作人: 周淦清</string>
     <string name="myClass">班级: 计科11704</string>
     <string name="myID">学号: 201703407</string>
     <string name="mySerial">课程序号: 52</string>
+    <string name="lb">(</string>
+    <string name="rb">)</string>
 </resources>
