@@ -1,7 +1,8 @@
 package com.example.bmicalculator;
 
-import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,8 +27,8 @@ public class Home2Fragment extends Fragment {
     private TextInputEditText we2, he2, name2;
     private Button cal2, reset2;
     private ChipGroup sex2;
+    private BMIDbHelper dbHelper;
 
-    @SuppressLint("ClickableViewAccessibility")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -35,10 +36,9 @@ public class Home2Fragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.home2, container,false);
         bindViews();
-
+        dbHelper = new BMIDbHelper(getContext());
         cal2.setOnClickListener(button1);
         reset2.setOnClickListener(button2);
-
         return view;
     }
 
@@ -57,7 +57,7 @@ public class Home2Fragment extends Fragment {
             MaterialAlertDialogBuilder madb =
                     new MaterialAlertDialogBuilder(Objects.requireNonNull(getContext()))
                             .setTitle("Warning")
-                            .setMessage("Please enter complete and correct data")
+                            .setMessage("Please enter complete and correct data.")
                             .setPositiveButton("accept", null);
 
             try {
@@ -94,6 +94,25 @@ public class Home2Fragment extends Fragment {
                 float rawResult = weight / height / height;
                 int BMI10 = (int) (rawResult * 10);
                 String res_f = new DecimalFormat("0.0").format(rawResult);
+
+                // Gets the data repository in write mode
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+                // Create a new map of values, where column names are the keys
+                ContentValues values = new ContentValues();
+                values.put(BMIData.BMIEntry.COLUMN_NAME_NAME, name_f);
+                values.put(BMIData.BMIEntry.COLUMN_NAME_SEX, sex_f);
+                values.put(BMIData.BMIEntry.COLUMN_NAME_HEIGHT, height);
+                values.put(BMIData.BMIEntry.COLUMN_NAME_WEIGHT, weight);
+                values.put(BMIData.BMIEntry.COLUMN_NAME_BMI, rawResult);
+                // Insert the new row, returning the primary key value of the new row
+                long newRowId = db.insert(BMIData.BMIEntry.TABLE_NAME, null, values);
+                if (newRowId == -1) {
+                    new MaterialAlertDialogBuilder(getContext())
+                            .setTitle("Error")
+                            .setMessage("Your data cannot be saved to local history.")
+                            .setPositiveButton("accept", null)
+                            .show();
+                }
 
                 Intent intent = new Intent(getActivity(), ResultActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK);

@@ -29,4 +29,5 @@
     <string name="mySerial">课程序号: 52</string>
     <string name="lb">(</string>
     <string name="rb">)</string>
+    <string name="history">History</string>
 </resources>
