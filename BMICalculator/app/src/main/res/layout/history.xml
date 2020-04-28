@@ -11,14 +11,97 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="16dp"
+        android:drawableStart="@drawable/baseline_history_24"
+        android:drawablePadding="2dp"
+        android:drawableTint="@color/MaterialTeal"
+        android:text="@string/history"
         android:textColor="@color/MaterialTeal"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:text="@string/history"/>
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/MaterialTeal"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@string/name_t"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/MaterialTeal"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@string/sex_t"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/MaterialTeal"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@string/height_t"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/MaterialTeal"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@string/weight_t"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/MaterialTeal"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@string/bmi_t"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/MaterialTeal"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@string/date_t"/>
+
+    </LinearLayout>
 
     <ListView
         android:id="@+id/listBMI"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"/>
+
+    <Button
+        android:id="@+id/clearHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="16dp"
+        android:text="@string/clearHistory"
+        app:icon="@drawable/baseline_clear_24"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"/>
 
 </LinearLayout>

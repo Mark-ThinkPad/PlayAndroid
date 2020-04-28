@@ -30,4 +30,11 @@
     <string name="lb">(</string>
     <string name="rb">)</string>
     <string name="history">History</string>
+    <string name="clearHistory">clear</string>
+    <string name="name_t">Name</string>
+    <string name="sex_t">Sex</string>
+    <string name="height_t">Height</string>
+    <string name="weight_t">Weight</string>
+    <string name="bmi_t">BMI</string>
+    <string name="date_t">Date</string>
 </resources>

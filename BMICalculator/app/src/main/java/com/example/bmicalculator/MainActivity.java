@@ -8,7 +8,6 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private HomeFragment fh;
     private Home2Fragment fh2;
     private AboutFragment af;
+    private HistoryFragment hisf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +57,10 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private void hideAllFragment(FragmentTransaction ft){
-        if(fh != null) ft.hide(fh);
-        if(fh2 != null) ft.hide(fh2);
-        if(af != null) ft.hide(af);
+        if (fh != null) ft.hide(fh);
+        if (fh2 != null) ft.hide(fh2);
+        if (af != null) ft.hide(af);
+        if (hisf != null) ft.hide(hisf);
     }
 
     public void itemClick(MenuItem item) {
@@ -92,6 +93,15 @@ public class MainActivity extends AppCompatActivity {
                     ft.show(af);
                 }
                 nv.setCheckedItem(R.id.about);
+                break;
+            case R.id.history:
+                if (hisf == null) {
+                    hisf = new HistoryFragment();
+                    ft.add(R.id.content, hisf);
+                } else {
+                    ft.show(hisf);
+                }
+                nv.setCheckedItem(R.id.history);
                 break;
             default:
                 break;

@@ -15,6 +15,12 @@
             android:icon="@drawable/baseline_house_24"/>
 
         <item
+            android:id="@+id/history"
+            android:title="@string/history"
+            android:onClick="itemClick"
+            android:icon="@drawable/baseline_history_24"/>
+
+        <item
             android:id="@+id/about"
             android:title="@string/about"
             android:onClick="itemClick"

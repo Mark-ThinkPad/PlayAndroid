@@ -138,4 +138,10 @@ public class Home2Fragment extends Fragment {
             sex2.clearCheck();
         }
     };
+
+    @Override
+    public void onDestroy() {
+        dbHelper.close();
+        super.onDestroy();
+    }
 }
