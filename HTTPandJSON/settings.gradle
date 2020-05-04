@@ -1,0 +1,2 @@
+rootProject.name='HTTP and JSON'
+include ':app'

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">HTTP and JSON</string>
+    <string name="logo_json">logo-json</string>
+    <string name="home">Home</string>
+    <string name="about">About</string>
+    <string name="app_icon">app_icon</string>
+    <string name="myName">制作人: 周淦清</string>
+    <string name="myClass">班级: 计科11704</string>
+    <string name="myID">学号: 201703407</string>
+    <string name="mySerial">课程序号: 52</string>
+    <string name="label1">Please enter Group ID</string>
+    <string name="defaultGroupID">移动开发</string>
+    <string name="label2">Please enter Student ID</string>
+    <string name="label3">Please enter your name</string>
+</resources>
