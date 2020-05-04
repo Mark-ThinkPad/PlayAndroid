@@ -12,4 +12,11 @@
     <string name="defaultGroupID">移动开发</string>
     <string name="label2">Please enter Student ID</string>
     <string name="label3">Please enter your name</string>
+    <string name="button1">upload</string>
+    <string name="button2">query</string>
+    <string name="query">Query the records</string>
+    <string name="groupID_t">GroupID</string>
+    <string name="xh_t">XH</string>
+    <string name="value_t">Value</string>
+    <string name="date_t">Date</string>
 </resources>

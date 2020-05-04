@@ -75,4 +75,110 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/button1"
+        app:icon="@drawable/baseline_cloud_upload_24"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:textSize="18sp"
+        android:textColor="@color/MaterialTeal"
+        android:textStyle="bold"
+        android:text="@string/query" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/label2"
+        app:endIconMode="custom"
+        app:endIconCheckable="false"
+        app:endIconDrawable="@drawable/baseline_perm_identity_24"
+        app:startIconDrawable="@drawable/baseline_account_box_24"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/xh_q"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/button2"
+        app:icon="@drawable/baseline_search_24"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/MaterialTeal"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@string/groupID_t"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/MaterialTeal"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@string/xh_t"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/value_t"
+            android:textColor="@color/MaterialTeal"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/MaterialTeal"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@string/date_t"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/wsnList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+
 </LinearLayout>
