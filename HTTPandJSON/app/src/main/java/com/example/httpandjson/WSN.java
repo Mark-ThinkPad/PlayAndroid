@@ -7,6 +7,8 @@ public class WSN {
     private String Value;
     private String Date;
 
+    public WSN() {}
+
     public WSN(String groupID, String xh, String value, String date) {
         this.GroupID = groupID;
         this.XH = xh;
