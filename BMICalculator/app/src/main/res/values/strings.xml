@@ -37,4 +37,5 @@
     <string name="weight_t">Weight</string>
     <string name="bmi_t">BMI</string>
     <string name="date_t">Date</string>
+    <string name="deleteItem">deleteItem</string>
 </resources>

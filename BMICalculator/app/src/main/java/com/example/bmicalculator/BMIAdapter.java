@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
@@ -42,17 +43,16 @@ public class BMIAdapter extends BaseAdapter {
                     .inflate(R.layout.history_list_item, parent,false);
             holder = new ViewHolder();
             holder.txt_name = convertView.findViewById(R.id.col1);
-            holder.txt_sex = convertView.findViewById(R.id.col2);
             holder.txt_height = convertView.findViewById(R.id.col3);
             holder.txt_weight = convertView.findViewById(R.id.col4);
             holder.txt_bmi = convertView.findViewById(R.id.col5);
             holder.txt_date = convertView.findViewById(R.id.col6);
+            holder.button = convertView.findViewById(R.id.deleteItem);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.txt_name.setText(data.get(position).getName());
-        holder.txt_sex.setText(data.get(position).getSex());
         holder.txt_date.setText(data.get(position).getDate());
         holder.txt_height.setText(
                 new DecimalFormat("0.00").format(data.get(position).getHeight()));
@@ -60,15 +60,23 @@ public class BMIAdapter extends BaseAdapter {
                 new DecimalFormat("0.0").format(data.get(position).getWeight()));
         holder.txt_bmi.setText(
                 new DecimalFormat("0.0").format(data.get(position).getBmi()));
+
+        holder.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
+
         return convertView;
     }
 
     static class ViewHolder {
         TextView txt_name;
-        TextView txt_sex;
         TextView txt_height;
         TextView txt_weight;
         TextView txt_bmi;
         TextView txt_date;
+        ImageButton button;
     }
 }

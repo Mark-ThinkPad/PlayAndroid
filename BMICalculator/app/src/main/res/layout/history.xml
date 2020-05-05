@@ -43,16 +43,6 @@
             android:textColor="@color/MaterialTeal"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:text="@string/sex_t"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:textColor="@color/MaterialTeal"
-            android:textSize="16sp"
-            android:textStyle="bold"
             android:text="@string/height_t"/>
 
         <TextView
@@ -70,10 +60,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
+            android:text="@string/bmi_t"
             android:textColor="@color/MaterialTeal"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:text="@string/bmi_t"/>
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
