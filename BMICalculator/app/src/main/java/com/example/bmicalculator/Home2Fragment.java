@@ -122,7 +122,7 @@ public class Home2Fragment extends Fragment {
                 bundle.putString("bmi_f", res_f);
                 bundle.putInt("bmi10", BMI10);
                 intent.putExtras(bundle);
-                getActivity().startActivity(intent);
+                Objects.requireNonNull(getActivity()).startActivity(intent);
             } catch (Exception e) {
                 madb.show();
             }
@@ -141,7 +141,7 @@ public class Home2Fragment extends Fragment {
 
     @Override
     public void onDestroy() {
-        dbHelper.close();
         super.onDestroy();
+        dbHelper.close();
     }
 }

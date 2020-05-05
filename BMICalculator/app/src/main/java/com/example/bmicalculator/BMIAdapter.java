@@ -14,6 +14,7 @@ import java.util.LinkedList;
 public class BMIAdapter extends BaseAdapter {
     private LinkedList<BMI> data;
     private Context context;
+    private OnItemDeleteListener onItemDeleteListener;
 
     public BMIAdapter(LinkedList<BMI> data, Context context) {
         this.data = data;
@@ -27,7 +28,7 @@ public class BMIAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return data.get(position);
     }
 
     @Override
@@ -36,7 +37,7 @@ public class BMIAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder holder = null;
         if (convertView == null) {
             convertView = LayoutInflater.from(context)
@@ -64,7 +65,7 @@ public class BMIAdapter extends BaseAdapter {
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                onItemDeleteListener.onDeleteButtonClick(position);
             }
         });
 
@@ -78,5 +79,14 @@ public class BMIAdapter extends BaseAdapter {
         TextView txt_bmi;
         TextView txt_date;
         ImageButton button;
+    }
+
+    public interface OnItemDeleteListener {
+        void onDeleteButtonClick(int position);
+    }
+
+    public void setOnItemDeleteListener(
+            OnItemDeleteListener onItemDeleteListener) {
+        this.onItemDeleteListener = onItemDeleteListener;
     }
 }

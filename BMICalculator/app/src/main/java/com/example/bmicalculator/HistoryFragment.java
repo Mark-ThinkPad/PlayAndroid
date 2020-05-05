@@ -1,5 +1,6 @@
 package com.example.bmicalculator;
 
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -14,7 +15,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class HistoryFragment extends Fragment {
     private ListView listView;
@@ -22,6 +27,7 @@ public class HistoryFragment extends Fragment {
     private SQLiteDatabase db;
     private BMIDbHelper dbHelper;
     private BMIAdapter bmiAdapter;
+    private View cview;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -29,6 +35,7 @@ public class HistoryFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.history, container, false);
         listView = view.findViewById(R.id.listBMI);
+        cview = Objects.requireNonNull(getActivity()).findViewById(R.id.coordinator);
         final Button button = view.findViewById(R.id.clearHistory);
         dbHelper = new BMIDbHelper(getContext());
         getHistory();
@@ -48,6 +55,12 @@ public class HistoryFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        dbHelper.close();
+    }
+
     private void getHistory() {
         db = dbHelper.getReadableDatabase();
         data = new LinkedList<BMI>();
@@ -62,6 +75,8 @@ public class HistoryFragment extends Fragment {
                 null,
                 sortOrder);
         while (cursor.moveToNext()) {
+            long itemID = cursor.getLong(
+                    cursor.getColumnIndexOrThrow(BMIData.BMIEntry._ID));
             String itemName = cursor.getString(
                     cursor.getColumnIndexOrThrow(BMIData.BMIEntry.COLUMN_NAME_NAME));
             String itemSex = cursor.getString(
@@ -74,11 +89,12 @@ public class HistoryFragment extends Fragment {
                     cursor.getColumnIndexOrThrow(BMIData.BMIEntry.COLUMN_NAME_WEIGHT));
             float itemBmi = cursor.getFloat(
                     cursor.getColumnIndexOrThrow(BMIData.BMIEntry.COLUMN_NAME_BMI));
-            data.add(new BMI(itemName, itemSex, itemDate,
+            data.add(new BMI(itemID, itemName, itemSex, itemDate,
                     itemHeight, itemWeight, itemBmi));
         }
         cursor.close();
         bmiAdapter = new BMIAdapter(data, getContext());
+        bmiAdapter.setOnItemDeleteListener(deleteListener);
         listView.setAdapter(bmiAdapter);
     }
 
@@ -91,7 +107,50 @@ public class HistoryFragment extends Fragment {
                 data.clear();
                 bmiAdapter.notifyDataSetChanged();
                 setListViewHeight(listView);
+                Snackbar.make(cview,
+                        "History has been deleted",
+                        Snackbar.LENGTH_LONG)
+                        .show();
             }
+        }
+    };
+
+    private BMIAdapter.OnItemDeleteListener deleteListener =
+            new BMIAdapter.OnItemDeleteListener() {
+        @Override
+        public void onDeleteButtonClick(final int position) {
+            new MaterialAlertDialogBuilder(Objects.requireNonNull(getContext()))
+                    .setTitle("Warning")
+                    .setMessage("Are you sure you want to delete this record?")
+                    .setNegativeButton("cancel", null)
+                    .setPositiveButton("confirm", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            BMI bmi = data.get(position);
+                            db = dbHelper.getWritableDatabase();
+                            // Define 'where' part of query.
+                            String selection = BMIData.BMIEntry._ID + " = ?";
+                            // Specify arguments in placeholder order.
+                            String[] selectionArgs = { Long.toString(bmi.getID()) };
+                            // Issue SQL statement.
+                            int deletedRows = db.delete(BMIData.BMIEntry.TABLE_NAME,
+                                    selection, selectionArgs);
+                            if (deletedRows == 1) {
+                                Snackbar.make(cview,
+                                        "This record was deleted successfully",
+                                        Snackbar.LENGTH_LONG)
+                                        .show();
+                            } else {
+                                Snackbar.make(cview,
+                                        "The record deletion failed",
+                                        Snackbar.LENGTH_LONG)
+                                        .show();
+                            }
+                            data.remove(position);
+                            bmiAdapter.notifyDataSetChanged();
+                            setListViewHeight(listView);
+                        }
+                    }).show();
         }
     };
 

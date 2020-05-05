@@ -1,6 +1,7 @@
 package com.example.bmicalculator;
 
 public class BMI {
+    private long ID;
     private String name;
     private String sex;
     private String date;
@@ -10,14 +11,19 @@ public class BMI {
 
     public BMI() {}
 
-    public BMI(String name, String sex, String date,
+    public BMI(long ID, String name, String sex, String date,
                float height, float weight, float bmi) {
+        this.ID = ID;
         this.name = name;
         this.sex = sex;
         this.date = date;
         this.height = height;
         this.weight = weight;
         this.bmi = bmi;
+    }
+
+    public long getID() {
+        return ID;
     }
 
     public String getName() {
@@ -42,6 +48,10 @@ public class BMI {
 
     public float getBmi() {
         return bmi;
+    }
+
+    public void setID(long ID) {
+        this.ID = ID;
     }
 
     public void setName(String name) {
