@@ -38,4 +38,6 @@
     <string name="bmi_t">BMI</string>
     <string name="date_t">Date</string>
     <string name="deleteItem">deleteItem</string>
+    <string name="chart">Chart</string>
+    <string name="line_chart">Line Chart</string>
 </resources>

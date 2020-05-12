@@ -21,10 +21,17 @@
             android:icon="@drawable/baseline_history_24"/>
 
         <item
+            android:id="@+id/chart"
+            android:title="@string/chart"
+            android:onClick="itemClick"
+            android:icon="@drawable/baseline_show_chart_24"/>
+
+        <item
             android:id="@+id/about"
             android:title="@string/about"
             android:onClick="itemClick"
             android:icon="@drawable/baseline_info_24"/>
+
     </group>
 
 </menu>

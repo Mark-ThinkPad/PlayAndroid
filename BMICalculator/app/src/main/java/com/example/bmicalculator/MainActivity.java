@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private HomeFragment fh;
     private Home2Fragment fh2;
     private AboutFragment af;
+    private ChartFragment cf;
     private HistoryFragment hisf;
 
     @Override
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         if (fh != null) ft.hide(fh);
         if (fh2 != null) ft.hide(fh2);
         if (af != null) ft.hide(af);
+        if (cf != null) ft.hide(cf);
         if (hisf != null) ft.hide(hisf);
     }
 
@@ -93,6 +95,15 @@ public class MainActivity extends AppCompatActivity {
                     ft.show(af);
                 }
                 nv.setCheckedItem(R.id.about);
+                break;
+            case R.id.chart:
+                if (cf == null) {
+                    cf = new ChartFragment();
+                    ft.add(R.id.content, cf);
+                } else {
+                    ft.show(cf);
+                }
+                nv.setCheckedItem(R.id.chart);
                 break;
             case R.id.history:
                 if (hisf == null) {
